@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heart Text</title>
+    <style>
+        .heart {
+            color: red;
+            font-size: 1em; /* Size of hearts */
+            line-height: 1; /* Adjust line height */
+            font-family: monospace; /* Use monospace for alignment */
+        }
+    </style>
+</head>
+<body>
+    <pre id="heart-text" class="heart"></pre>
+
+    <script>
+        const hearts = {
+            "I": [
+                "  ❤️  ",
+                "  ❤️  ",
+                "  ❤️  ",
+                "  ❤️  ",
+                "  ❤️  "
+            ],
+            "L": [
+                " ❤️    ",
+                " ❤️    ",
+                " ❤️    ",
+                " ❤️    ",
+                " ❤️❤️❤️ "
+            ],
+            "O": [
+                " ❤️❤️❤️ ",
+                "❤️     ❤️",
+                "❤️     ❤️",
+                " ❤️❤️❤️ ",
+                "        "
+            ],
+            "V": [
+                "❤️      ❤️",
+                " ❤️    ❤️ ",
+                "  ❤️  ❤️  ",
+                "   ❤️❤️   ",
+                "    ❤️    "
+            ],
+            "E": [
+                " ❤️❤️❤️ ",
+                "❤️      ",
+                " ❤️❤️❤️ ",
+                "❤️      ",
+                " ❤️❤️❤️ "
+            ],
+            "Y": [
+                "❤️      ❤️",
+                " ❤️    ❤️ ",
+                "  ❤️  ❤️  ",
+                "   ❤️❤️   ",
+                "    ❤️    ",
+                "    ❤️    "
+            ],
+            "U": [
+                "❤️      ❤️",
+                "❤️      ❤️",
+                "❤️      ❤️",
+                " ❤️❤️❤️ ",
+                "        "           
+            ],
+            "J": [
+                "    ❤️    ",
+                "    ❤️    ",
+                "    ❤️    ",
+                "❤️   ❤️   ",
+                " ❤️❤️❤️ "
+            ],
+            "<": [
+                "      ❤️ ",
+                "    ❤️   ",
+                "  ❤️     ",
+                "          ",
+                "          "
+            ],
+            "3": [
+                " ❤️❤️❤️ ",
+                "      ❤️ ",
+                " ❤️❤️❤️ ",
+                "      ❤️ ",
+                " ❤️❤️❤️ "
+            ],
+            " ": [
+                "        ",
+                "        ",
+                "        ",
+                "        ",
+                "        "
+            ]
+        };
+
+        const phrase = "I LOVE YOU JJ<3";
+        let index = 0;
+
+        const displayHeartText = setInterval(() => {
+            if (index < phrase.length) {
+                const letter = phrase[index];
+                const heartShape = hearts[letter];
+
+                if (heartShape) {
+                    heartShape.forEach(line => {
+                        document.getElementById('heart-text').innerHTML += line + '\n';
+                    });
+                }
+
+                index++;
+            } else {
+                index = 0; // Сброс индекса для повторения
+                document.getElementById('heart-text').innerHTML = ''; // Очистка текста для нового отображения
+            }
+        }, 1000); // Каждую 1 секунду
+    </script>
+</body>
+</html>
